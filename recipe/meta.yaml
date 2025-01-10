@@ -18,11 +18,11 @@ build:
     - mkdir -p "$PREFIX/share/bash-completion/completions/" "$PREFIX/share/zsh/site-functions/"
     - ./misc/tc-generate.sh bash >"$PREFIX/share/bash-completion/completions/b4"
     - ./misc/tc-generate.sh zsh >"$PREFIX/share/zsh/site-functions/_b4"
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - coreutils
     - setuptools
     - wheel
@@ -30,7 +30,7 @@ requirements:
     - shtab
     - requests >=2.24,<3.0
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - requests >=2.24,<3.0
     - git-filter-repo >=2.30,<3.0
     - dkimpy >=1.0,<2.0
@@ -47,6 +47,7 @@ test:
   requires:
     - pip
     - pytest
+    - python {{ python_min }}
   source_files:
     - src/tests/**
 
