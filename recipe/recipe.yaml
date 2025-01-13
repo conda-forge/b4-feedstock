@@ -1,0 +1,72 @@
+context:
+  version: 0.14.2
+
+package:
+  name: b4
+  version: ${{ version }}
+
+source:
+  url: https://mirrors.edge.kernel.org/pub/software/devel/b4/b4-${{ version }}.tar.gz
+  sha256: 62e739777d7963c72acf65b06a3f80762162e62eaabb53b5129a73291f2d4fa1
+
+build:
+  number: 1
+  noarch: python
+  script:
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    - "mkdir -p \"$PREFIX/share/bash-completion/completions/\" \"$PREFIX/share/zsh/site-functions/\""
+    - "./misc/tc-generate.sh bash >\"$PREFIX/share/bash-completion/completions/b4\""
+    - "./misc/tc-generate.sh zsh >\"$PREFIX/share/zsh/site-functions/_b4\""
+  python:
+    entry_points:
+      - b4 = b4.command:cmd
+
+requirements:
+  host:
+    - python ${{ python_min }}
+    - coreutils
+    - setuptools
+    - wheel
+    - pip
+    - shtab
+    - requests >=2.24,<3.0
+  run:
+    - python >=${{ python_min }}
+    - requests >=2.24,<3.0
+    - git-filter-repo >=2.30,<3.0
+    - dkimpy >=1.0,<2.0
+    - patatt >=0.6,<2.0
+    - __unix
+
+tests:
+  - python:
+      imports:
+        - b4
+  - files:
+      source:
+        - src/tests/**
+    requirements:
+      run:
+        - pip
+        - pytest
+        - python ${{ python_min }}
+    script:
+      - pip check
+      - b4 --help
+      - pytest
+
+about:
+  summary: A tool to work with public-inbox and patch archives
+  description: |
+    This is a helper utility to work with patches made available via a
+    public-inbox archive like lore.kernel.org. It is written to make it easier
+    to participate in a patch-based workflows, like those used in the Linux
+    kernel development.
+  license: GPL-2.0-or-later
+  license_file: COPYING
+  homepage: https://git.kernel.org/pub/scm/utils/b4/b4.git/
+  documentation: https://b4.docs.kernel.org/
+
+extra:
+  recipe-maintainers:
+    - blmaier
