@@ -23,7 +23,7 @@ build:
 
 requirements:
   host:
-    - python ${{ python_min }}
+    - python ${{ python_min }}.*
     - coreutils
     - setuptools
     - wheel
@@ -49,7 +49,7 @@ tests:
       run:
         - pip
         - pytest
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
     script:
       - pip check
       - b4 --help
