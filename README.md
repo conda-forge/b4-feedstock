@@ -16,7 +16,6 @@ public-inbox archive like lore.kernel.org. It is written to make it easier
 to participate in a patch-based workflows, like those used in the Linux
 kernel development.
 
-
 Current build status
 ====================
 
