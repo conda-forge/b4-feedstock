@@ -13,7 +13,7 @@ build:
   number: 2
   noarch: python
   script:
-    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    - python -m pip install . -vv --no-deps --no-build-isolation
     - "mkdir -p \"$PREFIX/share/bash-completion/completions/\" \"$PREFIX/share/zsh/site-functions/\""
     - "./misc/tc-generate.sh bash >\"$PREFIX/share/bash-completion/completions/b4\""
     - "./misc/tc-generate.sh zsh >\"$PREFIX/share/zsh/site-functions/_b4\""
