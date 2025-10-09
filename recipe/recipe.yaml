@@ -1,5 +1,5 @@
 context:
-  version: 0.14.2
+  version: 0.14.3
 
 package:
   name: b4
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://mirrors.edge.kernel.org/pub/software/devel/b4/b4-${{ version }}.tar.gz
-  sha256: 62e739777d7963c72acf65b06a3f80762162e62eaabb53b5129a73291f2d4fa1
+  sha256: fb04e3160d4cce63514df764182a18f873dcb87192b88d69ab5d0938feb99e0d
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script:
     - python -m pip install . -vv --no-deps --no-build-isolation
