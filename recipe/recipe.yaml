@@ -1,5 +1,5 @@
 context:
-  version: 0.14.3
+  version: "0.15.1"
 
 package:
   name: b4
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://mirrors.edge.kernel.org/pub/software/devel/b4/b4-${{ version }}.tar.gz
-  sha256: fb04e3160d4cce63514df764182a18f873dcb87192b88d69ab5d0938feb99e0d
+  sha256: 1785118ccc720f591b06c07317d1d6d076f41a98a138320d45eb5d1797d2ed24
 
 build:
   number: 0
