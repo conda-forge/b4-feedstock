@@ -1,0 +1,30 @@
+From 1aeb0f6a6c9c453b02e211b4529d773a8c5202d2 Mon Sep 17 00:00:00 2001
+From: Brandon Maier <brandon.maier@gmail.com>
+Date: Sat, 28 Mar 2026 16:00:23 -0500
+Subject: [PATCH] test_ez: disable broken test
+
+Fix will be in next git-filter-repo release after 2.47.0
+
+https://lore.kernel.org/tools/20251031-flashy-bouncy-macaw-2d5afa@lemur/
+---
+ src/tests/test_ez.py | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/src/tests/test_ez.py b/src/tests/test_ez.py
+index 7e67a0b..eab94a7 100644
+--- a/src/tests/test_ez.py
++++ b/src/tests/test_ez.py
+@@ -18,7 +18,9 @@ def prepdir(gitdir: str) -> Generator[str, None, None]:
+     b4.ez.cmd_prep(cmdargs)
+     yield gitdir
+ 
+-
++# Fix will be in next git-filter-repo release after 2.47.0
++# https://lore.kernel.org/tools/20251031-flashy-bouncy-macaw-2d5afa@lemur/
++@pytest.mark.skip(reason="Test broken due to bug in git-filter-repo 2.47.0")
+ @pytest.mark.parametrize('mboxf, bundlef, rep, trargs, compareargs, compareout, b4cfg', [
+     ('trailers-thread-with-followups', None, None, [],
+      ['log', '--format=%ae%n%s%n%b---', 'HEAD~4..'], 'trailers-thread-with-followups',
+-- 
+2.53.0
+

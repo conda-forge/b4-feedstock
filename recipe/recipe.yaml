@@ -8,6 +8,10 @@ package:
 source:
   url: https://mirrors.edge.kernel.org/pub/software/devel/b4/b4-${{ version }}.tar.gz
   sha256: 1785118ccc720f591b06c07317d1d6d076f41a98a138320d45eb5d1797d2ed24
+  patches:
+    # Patch for broken git-filter-repo 2.47.0, remove when git-filter-repo does
+    # next release
+    - 0001-test_ez-disable-broken-test.patch
 
 build:
   number: 0
