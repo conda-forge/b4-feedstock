@@ -50,6 +50,7 @@ tests:
       run:
         - pip
         - pytest
+        - pytest-asyncio
         - python ${{ python_min }}.*
     script:
       - pip check
