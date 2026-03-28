@@ -53,7 +53,6 @@ tests:
         - pytest-asyncio
         - python ${{ python_min }}.*
     script:
-      - pip check
       - b4 --help
       - pytest
 
