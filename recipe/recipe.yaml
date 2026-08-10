@@ -1,5 +1,5 @@
 context:
-  version: "0.15.2"
+  version: "0.16.0"
 
 package:
   name: b4
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://mirrors.edge.kernel.org/pub/software/devel/b4/b4-${{ version }}.tar.gz
-  sha256: dc681745ba9510ef3f0cde294a076021656dc172490d173576c5f248e572cad2
+  sha256: 91a1d978cb0a4e00f6c8eaa8631c44bc665abfdf9fb2b91f25512d17e9ae40ae
   patches:
     # Patch for broken git-filter-repo 2.47.0, remove when git-filter-repo does
     # next release
